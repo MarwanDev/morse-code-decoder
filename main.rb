@@ -28,18 +28,21 @@
 }
 
 def decode_char(char)
-  current_Char = @dictionary[char]
-  current_Char
+  @dictionary[char]
 end
 
 def decode_word(word)
   chars = word.split
-  current_Word = ''
+  current_word = ''
   chars.each do |char|
-    decode_char(char)
-    current_Word += decode_char(char)
+    current_word += decode_char(char)
   end
-  print "#{current_Word} "
+  print "#{current_word} "
 end
 
-
+def decode_message(message)
+  words = message.split('   ')
+  words.each do |word|
+    decode_word(word)
+  end
+end
